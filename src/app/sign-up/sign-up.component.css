@@ -1,0 +1,22 @@
+.form{
+    padding: 40px;
+    margin: 20px;
+
+}
+
+button{
+    text-align: right;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
+fieldset{
+   width: 100%;
+   
+}
+
+input{
+    padding: 10px;
+    display: flex;
+}

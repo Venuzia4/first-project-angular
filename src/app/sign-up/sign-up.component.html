@@ -1,1 +1,55 @@
-<p>sign-up works!</p>
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+<div class="form">
+  <fieldset>
+    <label for="firstname-order">
+      Firstname
+    </label>
+    <input id="firstname-order" name="firstname-order" type="text" [(ngModel)]="model.firstname" #firstname="ngModel" required minlength="3" maxlength="15">
+  </fieldset>
+  <div *ngIf="firstname.errors && myForm.submitted">
+    
+           <span *ngIf="firstname.errors?.['required']">Le firstname est requis</span>
+            <span *ngIf="firstname.errors?.['minlength']">Le firstname doit comporter au moins 3</span>
+           <span *ngIf="firstname.errors?.['maxlength']">Le firstname ne doit pas dépasser 15 caractères</span>
+          </div>
+  
+    <fieldset>
+    <label for="lastname-order">
+        lastname
+      </label>
+      <input id="lastname-order" name="lastname-order" type="text" [(ngModel)]="model.lastname" #lastname="ngModel" minlength="3" maxlength="15" required >
+    </fieldset>
+    <div *ngIf="lastname.errors  && myForm.submitted">
+      
+             <span *ngIf="lastname.errors?.['required']">Le lastname est requis</span>
+              <span *ngIf="lastname.errors?.['minlength']">Le lastname doit comporter au moins 3</span>
+             <span *ngIf="lastname.errors?.['maxlength']">Le lastname ne doit pas dépasser 15 caractères</span>
+            </div>
+            <fieldset>
+            <label for="email-order">
+                Email
+              </label>
+              <input id="email-order" name="email-order" type="email" [(ngModel)]="model.email" #email="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" >
+            </fieldset>
+            <div *ngIf="email.errors  && myForm.submitted">
+              
+                     <span *ngIf="email.errors?.['pattern']">Entrez une email valide</span>
+
+                     <span *ngIf="email.errors?.['required']">L'email est inavalide</span>
+                    </div>
+        
+  
+    <fieldset>
+  <label for="Password-order">
+    Password
+  </label>
+  <input id="Password-order" type="password">
+</fieldset>
+
+
+
+
+  <button class="button" type="submit">Submit</button>
+
+</div>
+</form>
